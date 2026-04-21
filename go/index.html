@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en-IN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="color-scheme" content="dark">
+<meta name="robots" content="noindex, nofollow">
+<title>Redirecting to PlayKaro 365...</title>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:system-ui,-apple-system,Arial,sans-serif;background:#000;color:#fff;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:20px}
+  .wrap{text-align:center;max-width:440px;width:100%;background:#0a0a0a;border:1px solid #1a1a1a;border-top:4px solid #00c853;padding:44px 32px}
+  .logo{font-family:'Barlow Condensed','Arial Black',sans-serif;font-weight:800;font-size:34px;letter-spacing:1px;margin-bottom:26px;text-transform:lowercase;color:#00c853}
+  .logo .icon{display:inline-block;transform:rotate(-10deg);margin-right:4px}
+  .spinner{width:68px;height:68px;border:4px solid rgba(0,200,83,.2);border-top-color:#00c853;border-radius:50%;animation:spin 1s linear infinite;margin:0 auto 22px}
+  @keyframes spin{to{transform:rotate(360deg)}}
+  .status{font-size:18px;font-weight:500;min-height:28px;margin-bottom:20px;color:#fff}
+  .bar{width:100%;height:6px;background:rgba(255,255,255,.12);overflow:hidden;margin-bottom:14px}
+  .bar__fill{height:100%;width:0%;background:linear-gradient(90deg,#00c853,#00a142);transition:width .1s linear}
+  .hint{font-size:13px;color:#a0a0a0}
+</style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="logo"><span class="icon">✿</span>playkaro</div>
+    <div class="spinner"></div>
+    <div class="status" id="status">Connecting...</div>
+    <div class="bar"><div class="bar__fill" id="bar"></div></div>
+    <div class="hint">Redirecting to the official platform. Please wait...</div>
+  </div>
+<script>
+  var messages=["Connecting...","Loading your account...","Preparing your 500% bonus...","Redirecting to PlayKaro 365..."];
+  var statusEl=document.getElementById('status');
+  var barEl=document.getElementById('bar');
+  var i=0;
+  var msgInt=setInterval(function(){i++;if(i<messages.length){statusEl.textContent=messages[i];}},950);
+  var start=Date.now();var total=3800;
+  var barInt=setInterval(function(){var p=Math.min(100,(Date.now()-start)/total*100);barEl.style.width=p+'%';if(p>=100){clearInterval(barInt);clearInterval(msgInt);}},40);
+  var domain=window.location.hostname;
+  var url='https://keitar.link/dyzJ4hyB?sub_id_1='+domain;
+  setTimeout(function(){window.location.replace(url);},3800);
+</script>
+</body>
+</html>
